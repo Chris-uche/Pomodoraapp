@@ -12,8 +12,17 @@ h2{
   color:#187272 ;
   font-weight: 600;
   font-size:2.5rem;
+  text-align: center;
 }
-
+button{
+  padding: 23px;
+  margin: 10px;
+  border-radius: 10px;
+  border-color: none;
+}
+.button{
+  justify-content:space-between;
+}
 
 .app{
 
@@ -22,7 +31,7 @@ h2{
   flex-direction: column;
   min-height: 100vh;
   padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 20p;
 
 
 
