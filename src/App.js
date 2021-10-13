@@ -21,14 +21,10 @@ function App() {
     if(intervalRef.current ===! null) return
     intervalRef.current = setInterval(()=>{
       setTimer( timeLeft=> {
-        if(timeLeft >=1){
-          return timeLeft -1
-          
-        }
-        return 0
-      }
-        
-      )
+        if(timeLeft >=1) return timeLeft -1;
+        return 0;
+        resetTimer();
+      })
       
     },1000)
     //console.log(intervalRef.current)
