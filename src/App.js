@@ -11,12 +11,14 @@ const padTimer=(timer)=>{
 function App() {
   const [title, setTitle] = useState("Let the count down begin !")
   const [timeLeft, setTimer]  = useState(10)
+  const [isRuning, setRuning] = useState(false)
   const minutes  = padTimer(Math.floor(timeLeft/60))
   const seconds = padTimer(timeLeft - minutes * 60)
 
   const intervalRef = useRef(null)
 
   const startTimer=()=>{
+    setRuning(true)
     setTitle("You are doing well")
     if(intervalRef.current ===! null) return
     intervalRef.current = setInterval(()=>{
@@ -35,11 +37,13 @@ function App() {
     //console.log(intervalRef.current)
     clearInterval(intervalRef.current)
     setTitle("Keep it up")
+    setRuning(false)
   }
   const resetTimer=()=>{
     clearInterval(intervalRef.current)
     setTitle("Ready to go another round")
     setTimer(25*60)
+    setRuning(false)
   }
   
   return (
@@ -52,8 +56,8 @@ function App() {
         
       </div>
       <div className="button">
-        <button onClick={startTimer}>Start</button>
-        <button onClick={stopTimer}>Stop</button>
+         {!isRuning && <button onClick={startTimer}>Start</button>}
+        {isRuning && <button onClick={stopTimer}>Stop</button>} 
         <button onClick={resetTimer}>Reset</button>
         
       </div>
