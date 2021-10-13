@@ -22,8 +22,8 @@ function App() {
     intervalRef.current = setInterval(()=>{
       setTimer( timeLeft=> {
         if(timeLeft >=1) return timeLeft -1;
-        return 0;
         resetTimer();
+        return 0;
       })
       
     },1000)
