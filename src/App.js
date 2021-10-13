@@ -18,6 +18,7 @@ function App() {
 
   const startTimer=()=>{
     setTitle("You are doing well")
+    if(intervalRef.current ===! null) return
     intervalRef.current = setInterval(()=>{
       setTimer( timeLeft=> {
         if(timeLeft >=1){
@@ -34,6 +35,7 @@ function App() {
   }
 
   const stopTimer=()=>{
+    if(intervalRef.current === null) return
     //console.log(intervalRef.current)
     clearInterval(intervalRef.current)
     setTitle("Keep it up")
@@ -41,7 +43,7 @@ function App() {
   const resetTimer=()=>{
     clearInterval(intervalRef.current)
     setTitle("Ready to go another round")
-    setInterval(25*60)
+    setTimer(25*60)
   }
   
   return (
